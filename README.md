@@ -32,3 +32,7 @@ python3 manage.py runserver
 # Then head to http://127.0.0.1:8000/gold-card-qualification/
 # http://127.0.0.1:8000/admin/ to add questions in the wizard
 ```
+
+## Architecture
+- HTML Templates: `./twvisafinder/templates`
+- CSS Styles: `./twvisafinder/static/twvisafinder/css`
