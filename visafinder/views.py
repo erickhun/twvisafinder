@@ -145,6 +145,11 @@ def goldcardqualification(request):
 
 
     else:
+        return render(request, 'base_goldcard.html', context={
+            'support_email': settings.SUPPORT_EMAIL,
+            'questions': GoldCardQuestion.objects.filter(tree_order=0),
+            })
+
         return render(request, 'goldcardqualification.html', context={
             'support_email': settings.SUPPORT_EMAIL,
             'questions': GoldCardQuestion.objects.filter(tree_order=0),

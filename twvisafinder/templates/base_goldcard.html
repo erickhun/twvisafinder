@@ -1,0 +1,95 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+      <title>Taiwan Visa Finder</title>
+      <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+
+      <link rel="stylesheet" href="https://taiwangoldcard.com/css/styles.31f0b7e27b57a279562837c24e7b4b9e9bfd7f894e27e026d600516dd5d4f1a62634efb9cbece1c00770ea58c774092f6eaded8cc78d2a9c8eda2141407a4fac.css">
+   </head>
+   <body class="page-page">
+      <header class="mainHeader">
+         <nav class="mainNavigation">
+            <a class="mainNavigation_logoLink" href="/">
+               <picture>
+                  <source srcset="https://taiwangoldcard.com/images/gc-light.svg" media="(prefers-color-scheme: dark)">
+                  🇹🇼 Taiwan Gold Card
+               </picture>
+            </a>
+            <div class="search">
+               <label for="search" class="search_label"></label>
+               <input type="search" class="search_field" placeholder="Search..." id="search">
+               <div class="search_results"></div>
+            </div>
+            <ul class="mainNavigation_menu">
+               <li class="nav-item">
+                  <a class="nav-link" href="https://taiwangoldcard.com/application-faq/"><span>Application Process</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="https://taiwangoldcard.com/goldcard-holders-faq/"><span>Life in Taiwan</span></a>
+               </li>
+            </ul>
+         </nav>
+      </header>
+      <main class="main wrap md">
+         <div class="content">
+            <h1>Gold Card Qualification Wizard</h1>
+            <section class="grid-2 mt-2 homepage-div">
+               <div>
+                <p>
+                    Please tick all that apply to explore ways you may qualify for the Gold Card.
+                    </p>
+
+
+
+            </section>
+
+            <section class="visadescriptions">
+                <form action="/gold-card-qualification/" method="post">
+                {% csrf_token %}
+                {% for question in questions %}
+                <div class="visadesc"><div class="gcdesccontainer">
+                <input type="checkbox" id="{{question.tree_id}}" name="{{question.tree_id}}" value="{{question.tree_id}}">
+                <label for="{{question.tree_id}}">
+                {{question.question_text}}
+                </label>
+                </div></div>
+                {% endfor %}
+                <p></p>
+                <p></p>
+
+            <div>
+                <input type="submit" value="Next" class="button"\>
+            </div>
+                </form>
+            </section>
+        
+
+
+         </div>
+      </main>
+      <footer class="mt-2 pt-2 pb-2">
+         <div class="wrap">
+            <p>&copy; 2020 Taiwan Gold Card Community - <a href="/about">About</a></p>
+         </div>
+      </footer>
+      <script src="https://taiwangoldcard.com/js/bundle.min.1974f589f60f9fe53048bbe1ef9d687e88da859c644e9e0201fdf5d76ef54ea7c955981a649ad18b4a7be9dc58bdb4bdb7837ff328ec0de6e964b1947ed21467.js"></script>
+   </body>
+
+   <style>
+    input[type=checkbox]
+    {
+      -webkit-appearance:checkbox;
+      height: 20px;
+      width: 15px;
+      vertical-align: middle;
+    }
+    .visadescriptions {
+        font-size: x-large;
+    }
+   </style>
+</html>
